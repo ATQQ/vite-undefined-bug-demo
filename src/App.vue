@@ -1,15 +1,19 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <el-date-picker v-model="value" type="datetime" placeholder="选择日期时间"></el-date-picker>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'App',
   setup() {
-    return {
+    const value = ref('')
 
+    return {
+      value,
     }
   },
 })
