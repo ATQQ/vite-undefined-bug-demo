@@ -13,8 +13,15 @@ import App from './App.vue'
 const app = createApp(App)
 
 app.use(ElButton).use(ElDatePicker)
-console.log(lang)
-console.log(locale)
 
-locale(lang)
+// bug
+// locale(lang)
+console.log(import.meta.env.MODE, typeof locale)
+
+// solve bug
+if (import.meta.env.PROD) {
+  locale.use(lang)
+} else {
+  locale(lang)
+}
 app.mount('#app')
